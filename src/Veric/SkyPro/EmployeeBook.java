@@ -1,10 +1,9 @@
 package Veric.SkyPro;
 
-public class Main {
-
-    static Employee[] employees = new Employee[10];
-    static int cycleLength = employees.length-1;
-    public static void printAllEmployees() {
+public class EmployeeBook {
+    private Employee[] employees = new Employee[10];
+    private int cycleLength = employees.length-1;
+    public void printAllEmployees() {
         for (int i = cycleLength; i >= 0 ; i--) {
             if (employees[i] != null) {
                 System.out.println(employees[i].toString());
@@ -12,7 +11,7 @@ public class Main {
         }
     }
 
-    public static void printFullNameAllEmployees() {
+    public void printFullNameAllEmployees() {
         for (int i = cycleLength; i >= 0 ; i--) {
             if (employees[i] != null) {
                 System.out.println(employees[i].getFullName());
@@ -20,7 +19,7 @@ public class Main {
         }
     }
 
-    public static float sumSalaryMonth() {
+    public float sumSalaryMonth() {
         float sum = 0;
         for (int i = cycleLength; i >= 0 ; i--) {
             if (employees[i] != null) {
@@ -30,7 +29,7 @@ public class Main {
         return sum;
     }
 
-    public static float minSalaryMonth() {
+    public float minSalaryMonth() {
         float minSalaryMonth = 0;
         for (int i = cycleLength; i >= 0 ; i--) {
             if (employees[i] != null) {
@@ -48,7 +47,7 @@ public class Main {
         return minSalaryMonth;
     }
 
-    public static float maxSalaryMonth() {
+    public float maxSalaryMonth() {
         float maxSalaryMonth = 0;
         for (int i = cycleLength; i >= 0 ; i--) {
             if (employees[i] != null) {
@@ -66,7 +65,7 @@ public class Main {
         return maxSalaryMonth;
     }
 
-    public static int countEmployees() {
+    public int countEmployees() {
         int count = 0;
         for (int i = cycleLength; i >= 0 ; i--) {
             if (employees[i] != null) {
@@ -76,7 +75,7 @@ public class Main {
         return count;
     }
 
-    public static float averageSalaryMonth() {
+    public float averageSalaryMonth() {
         int count = 1;
         if (countEmployees() > count) {
             count = countEmployees();
@@ -84,7 +83,7 @@ public class Main {
         return sumSalaryMonth() / count;
     }
 
-    public static float sumSalaryMonth(String depart) {
+    public float sumSalaryMonth(String depart) {
         float sum = 0;
         for (int i = cycleLength; i >= 0 ; i--) {
             if (employees[i] != null && employees[i].getDepartment() == depart) {
@@ -94,7 +93,7 @@ public class Main {
         return sum;
     }
 
-    public static float minSalaryMonth(String depart) {
+    public float minSalaryMonth(String depart) {
         float minSalaryMonth = 0;
         for (int i = cycleLength; i >= 0 ; i--) {
             if (employees[i] != null && employees[i].getDepartment() == depart) {
@@ -112,7 +111,7 @@ public class Main {
         return minSalaryMonth;
     }
 
-    public static float maxSalaryMonth(String depart) {
+    public float maxSalaryMonth(String depart) {
         float maxSalaryMonth = 0;
         for (int i = cycleLength; i >= 0 ; i--) {
             if (employees[i] != null && employees[i].getDepartment() == depart) {
@@ -130,7 +129,7 @@ public class Main {
         return maxSalaryMonth;
     }
 
-    public static int countEmployees(String depart) {
+    public int countEmployees(String depart) {
         int count = 0;
         for (int i = cycleLength; i >= 0 ; i--) {
             if (employees[i] != null && employees[i].getDepartment() == depart) {
@@ -140,7 +139,7 @@ public class Main {
         return count;
     }
 
-    public static float averageSalaryMonth(String depart) {
+    public float averageSalaryMonth(String depart) {
         int count = 1;
         if (countEmployees(depart) > count) {
             count = countEmployees(depart);
@@ -148,7 +147,7 @@ public class Main {
         return sumSalaryMonth(depart) / count;
     }
 
-    public static void toIndexSalaryMonth(float procent) {
+    public void toIndexSalaryMonth(float procent) {
         for (int i = cycleLength; i >= 0 ; i--) {
             if (employees[i] != null) {
                 employees[i].setSalaryMonth(employees[i].getSalaryMonth() * procent);
@@ -156,7 +155,7 @@ public class Main {
         }
     }
 
-    public static void toIndexSalaryMonth(String depart, float procent) {
+    public void toIndexSalaryMonth(String depart, float procent) {
         for (int i = cycleLength; i >= 0 ; i--) {
             if (employees[i] != null && employees[i].getDepartment() == depart) {
                 employees[i].setSalaryMonth(employees[i].getSalaryMonth() * procent);
@@ -164,7 +163,7 @@ public class Main {
         }
     }
 
-    public static void printAllEmployees(String depart) {
+    public void printAllEmployees(String depart) {
         for (int i = cycleLength; i >= 0 ; i--) {
             if (employees[i] != null && employees[i].getDepartment() == depart) {
                 System.out.println(employees[i].toString(depart));
@@ -172,7 +171,7 @@ public class Main {
         }
     }
 
-    public static void printLessSalaryMonth(float sum) {
+    public void printLessSalaryMonth(float sum) {
         for (int i = cycleLength; i >= 0; i--) {
             if (employees[i] != null && employees[i].getSalaryMonth() < sum) {
                 System.out.println(employees[i].getId() + ": ");
@@ -181,7 +180,7 @@ public class Main {
         }
     }
 
-    public static void printEqMaxSalaryMonth(float sum) {
+    public void printEqMaxSalaryMonth(float sum) {
         for (int i = cycleLength; i >= 0; i--) {
             if (employees[i] != null && employees[i].getSalaryMonth() >= sum) {
                 System.out.println(employees[i].getId() + ": ");
@@ -190,13 +189,106 @@ public class Main {
         }
     }
 
-
-    public static void main(String[] args) {
-        EmployeeBook book1 = new EmployeeBook();
-        book1.addEmployee("John", "J.", "Connor", "Monetary", 50000);
-        book1.addEmployee("Samanta", "S.", "Fox", "Monetary", 40000);
-        book1.addEmployee("Jack", "Elton", "Bresenham", "IT", 80000);
-        book1.addEmployee("Bjarne", "F.", "Stroustrup", "IT", 85000);
-        book1.listEmployeeToDepartment();
+    public void addEmployee(String firstN, String middleN, String lastN, String depart, float salaryM) {
+        Employee e = new Employee( firstN, middleN, lastN, depart, salaryM);
+        boolean addTrue = false;
+        for (int i = cycleLength; i >= 0; i--) {
+            if (employees[i] == null || employees[i].getId() == 0) {
+                addTrue= true;
+            }
+        }
+        if (addTrue) {
+            for (int i = cycleLength; i >= 0; i--) {
+                if (employees[i] == null) {
+                    employees[i] = new Employee(firstN, middleN, lastN, depart, salaryM);
+                    break;
+                } else if (employees[i].getId() == 0) {
+                    employees[i].setFirstName(firstN);
+                    employees[i].setMiddleName(middleN);
+                    employees[i].setLastName(lastN);
+                    employees[i].setDepartment(depart);
+                    employees[i].setSalaryMonth(salaryM);
+                    break;
+                }
+            }
+        } else {
+            System.out.println("Штат сотрудников фирмы полон, невозможно добавить нового сотрудника");
+        }
     }
-}
+
+    public void deleteEmployee(String firstN, String middleN, String lastN, String depart) {
+        Employee e = new Employee( firstN, middleN, lastN, depart, 0);
+        for (int i = cycleLength; i >= 0; i--) {
+            if (employees[i].equals(e)) {
+                employees[i].resetId();
+                employees[i].setFirstName("");
+                employees[i].setMiddleName("");
+                employees[i].setLastName("");
+                employees[i].setDepartment("");
+                employees[i].setSalaryMonth(0);
+            }
+        }
+    }
+
+    public void deleteEmployee(int id) {
+        for (int i = cycleLength; i >= 0; i--) {
+            if (employees[i].getId() == id) {
+                employees[i].resetId();
+                employees[i].setFirstName("");
+                employees[i].setMiddleName("");
+                employees[i].setLastName("");
+                employees[i].setDepartment("");
+                employees[i].setSalaryMonth(0);
+            }
+        }
+    }
+
+    public void changeEmployee(String firstN, String middleN, String lastN, String depart, float salaryM) {
+        Employee e = new Employee(firstN, middleN, lastN, depart, 0);
+        for (int i = cycleLength; i >= 0; i--) {
+            if (employees[i].equals(e) ) {
+                if (employees[i].getDepartment() == depart) {
+                    employees[i].setSalaryMonth(salaryM);
+                } else {
+                    employees[i].setDepartment(depart);
+                    employees[i].setSalaryMonth(salaryM);
+                }
+            }
+        }
+    }
+
+    public void listEmployeeToDepartment() {
+        String[] s = new String[employees.length];
+        int countDepartment = 0;
+        boolean uniqueDepartment;
+        for (int i = cycleLength; i >= 0; i--) {
+                if (employees[i] != null && employees[i].getId() != 0) {
+                    uniqueDepartment = true;
+                    for (int j = s.length-1; j >= 0; j--) {
+                        if (employees[i].getDepartment().equals(s[j])) {
+                            uniqueDepartment = false;
+                            break;
+                        }
+                    }
+                    if (uniqueDepartment) {
+                        s[countDepartment] = employees[i].getDepartment();
+                        countDepartment++;
+                    }
+                }
+            }
+        for (int j = countDepartment; j > 0; j--) {
+            System.out.println("------------------------");
+            System.out.println("Отдел: " + s[j - 1]);
+            System.out.println("Сотрудники:");
+            for (int i = cycleLength; i >= 0; i--) {
+                if (employees[i] != null && employees[i].getId() != 0) {
+                    if (employees[i].getDepartment().equals(s[j - 1])) {
+                        System.out.println(employees[i].toString(s[j - 1]));
+                    }
+                }
+            }
+        }
+
+    }
+
+    }
